@@ -350,14 +350,18 @@ session_start();
                                             <tr>
                                                 <td>
                                                     <?php 
-                                                    $ci = ((($tahp[0]*$eigen[0])+($tahp[1]*$eigen[1])+($tahp[2]*$eigen[2])+($tahp[3]*$eigen[3]))-4)/3;
+                                                    $ci = (($tahp[0]*$eigen[0])+($tahp[1]*$eigen[1])+($tahp[2]*$eigen[2])+($tahp[3]*$eigen[3]));
                                                     echo $ci;
                                                      ?>
                                                 </td>
-                                                <td><?php 
+                                                
+                                                <td rowspan="2"><?php 
                                                 $cr = $ci/0.9;
                                                 echo $cr;
                                                  ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><?php echo ($ci-4)/3; ?></td>
                                             </tr>
                                         </tbody>
                                     </table>
