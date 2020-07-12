@@ -22,8 +22,8 @@ include "koneksi.php";
 
         <div class="wrapper">
             <!-- Sidebar Holder -->
-            <nav id="sidebar">
-                <div class="sidebar-header">
+            <nav id="sidebar" style="background-color: #82b74b">
+                <div class="sidebar-header" style="background-color: #82b74b">
                     <a href="index.php"><center>
                     <h3><center>SPK PEMILIHAN TUMBUHAN HUTAN BERKHASIAT OBAT UNTUK PENYAKIT KULIT</center></h3>    
                     </center>
@@ -64,7 +64,7 @@ include "koneksi.php";
                     <div class="container-fluid">
 
                         <div class="navbar-header">
-                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                            <button type="button" id="sidebarCollapse" class="btn btn-success navbar-btn">
                                 <i class="glyphicon glyphicon-align-left"></i>
                                 <span>Toggle Sidebar</span>
                             </button>
@@ -100,16 +100,58 @@ include "koneksi.php";
                             </select>
                             
                         </div>
-
-                        <div class="form-group">
-                            <label>Cara Penggunaan:</label>
-                            <select name="guna" class="form-control">
+                        
+                        <div class="form-check-inline">
+                            <label class="form-check-label">Cara Penggunaan:</label>
+                            <br>
                                 <?php 
                                     $sql1 = "SELECT DISTINCT cara_penggunaan FROM tumbuhan_obat";
                                      
                                     foreach ($dbh->query($sql1) as $data1) :
                                 ?>
-                                <option value="<?php echo $data1['cara_penggunaan']; ?>"><?php echo $data1['cara_penggunaan']; ?></option>
+                                
+                                    <label class="checkbox-inline">
+                                <input type="checkbox" name="guna[ ]" value="<?php echo $data1['cara_penggunaan']; ?>" > <?php echo $data1['cara_penggunaan']; ?>        
+                                </label>    
+                                
+                                
+                            <?php
+                                endforeach;
+                            ?>
+                        </div>
+                            
+                        
+                            <br>
+                        <div class="form-group">
+                            <label>Cara Pengolahan:</label>
+                            <br>
+                            
+                                <?php 
+                                    $sql1 = "SELECT DISTINCT cara_pengolahan FROM tumbuhan_obat";
+                                     
+                                    foreach ($dbh->query($sql1) as $data1) :
+                                ?>
+                            
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="olah[ ]" value="<?php echo $data1['cara_pengolahan'];?>" > <?php echo $data1['cara_pengolahan']; ?>
+                            </label>
+                                <?php
+                                endforeach;
+                                 ?>
+                            
+                        </div>
+
+                        <div class="form-group">
+                            <label>Bagian Tumbuhan:</label>
+                            <br>
+                                <?php 
+                                    $sql1 = "SELECT DISTINCT bagian_tumbuhan FROM tumbuhan_obat";
+                                     
+                                    foreach ($dbh->query($sql1) as $data1) :
+                                ?>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="bagian[ ]" value=<?php echo $data1['bagian_tumbuhan']; ?> > <?php echo $data1['bagian_tumbuhan']; ?>
+                                </label>
                                 <?php
                                 endforeach;
                                  ?>
@@ -117,8 +159,27 @@ include "koneksi.php";
                             
                         </div>
 
+                        <div class="form-group">
+                            <label>Jenis Tumbuhan:</label>
+                            <br>
+                                <?php 
+                                    $sql1 = "SELECT DISTINCT jenis_tumbuhan FROM tumbuhan_obat";
+                                     
+                                    foreach ($dbh->query($sql1) as $data1) :
+                                ?>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="jenis[ ]" value="<?php echo $data1['jenis_tumbuhan']; ?>" class="checkbo"> <?php echo $data1['jenis_tumbuhan']; ?>
+                                </label>
+                                <?php
+                                endforeach;
+                                 ?>
+                            
+                        </div>
+
+                        
+
                     <div class="form-group">
-                            <input type="submit" required name="hasil" value = "Hasil" class="btn btn-success btn-fill" onclick="return confirm('Apa anda yakin dengan  data anda?');">
+                            <input type="submit" required name="hasil" value = "Hasil" class="btn btn-warning btn-fill" onclick="return confirm('Apa anda yakin dengan  data anda?');">
                 </div>
                     </form>
                 </div>

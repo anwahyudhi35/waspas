@@ -21,8 +21,8 @@ session_start();
 
         <div class="wrapper">
             <!-- Sidebar Holder -->
-            <nav id="sidebar">
-                <div class="sidebar-header">
+            <nav id="sidebar" style=" background-color: #82b74b">
+                <div class="sidebar-header" style="background-color: #82b74b">
                     <a href="../index-admin.php">
                     <h3><center>SPK PEMILIHAN TUMBUHAN HUTAN BERKHASIAT OBAT UNTUK PENYAKIT KULIT</center></h3>
                         <strong>
@@ -31,7 +31,7 @@ session_start();
                 </div>
 
                 <ul class="list-unstyled components">
-                   <li class="active">
+                   <li>
                         <a href="data-tanaman-admin.php">
                             <i class="glyphicon glyphicon-briefcase"></i>
                             Data Tanaman Obat
@@ -58,20 +58,21 @@ session_start();
                     <div class="container-fluid">
 
                         <div class="navbar-header">
-                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                            <button type="button" id="sidebarCollapse" class="btn btn-success navbar-btn">
                                 <i class="glyphicon glyphicon-align-left"></i>
                                 <span>Toggle Sidebar</span>
                             </button>
                         </div>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <p></p><div class="dropdown"> <!-- warna dropdown menu diubah-->
+                            <div class="dropdown"> 
                                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
                                     <span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['nama']; ?>
                                 <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a href="../edit-profil.php">Profil</a></li>
+                                    <li><?php $id = $_SESSION['id_amin'] ?>
+                                        <a href="../edit-profil.php?siapa=<?php echo $id ?>">Ubah</a></li>
                                     <li><a href="../logout.php">Log out</a></li>
                                  </ul>
                             </div>
@@ -117,6 +118,7 @@ session_start();
                          <option value="Getah">Getah</option>
                          <option value="Bunga">Bunga</option>
                          <option value="Kulit Batang">Kulit Batang</option>
+                        <option value="Biji">Biji</option>
                       </select>
                     </div>
                   	<div class="form-group">
@@ -173,6 +175,10 @@ session_start();
 
                         
                       </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Latin</label>
+                      <input type="text" name="latin" cols="60" rows="10" class="form-control" required=""> 
                     </div>
                     <div class="form-group">
                       <label>Resep</label>

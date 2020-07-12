@@ -29,8 +29,8 @@ session_start();
 
         <div class="wrapper">
             <!-- Sidebar Holder -->
-            <nav id="sidebar">
-                <div class="sidebar-header">
+            <nav id="sidebar" style="background-color: #82b74b">
+                <div class="sidebar-header" style="background-color: #82b74b">
                     <a href="index-admin.php">
                     <h3><center>SPK PEMILIHAN TUMBUHAN HUTAN BERKHASIAT OBAT UNTUK PENYAKIT KULIT</center></h3>
                         <strong>
@@ -66,7 +66,7 @@ session_start();
                     <div class="container-fluid">
 
                         <div class="navbar-header">
-                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                            <button type="button" id="sidebarCollapse" class="btn btn-success navbar-btn">
                                 <i class="glyphicon glyphicon-align-left"></i>
                                 <span>Toggle Sidebar</span>
                             </button>
@@ -79,7 +79,8 @@ session_start();
                                 <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a href="../edit-profil.php">Profil</a></li>
+                                    <li><?php $id = $_SESSION['id_amin'] ?>
+                                    <a href="../edit-profil.php?siapa=<?php echo $id ?>">Ubah</a></li>
                                     <li><a href="../logout.php">Log out</a></li>
                                  </ul>
                             </div>
@@ -94,6 +95,13 @@ session_start();
                 </center>
                 <div class="panel-body">
                     <h3><center>AHP</center></h3>
+                    <center>    
+                    <a href="ubah-hitung.php?hitung=<?php echo $totalan['id'] ?>" class="btn btn-warning"> 
+                    <i class="glyphicon glyphicon-pencil"></i>
+                    <span>Ubah Hitungan</span>
+                    </a>
+                    </center>
+                    <br>
                             <hr>
                             <h3>Matriks</h3>
                             <hr>
@@ -109,106 +117,104 @@ session_start();
                                         <tr>
                                             <?php 
 
-                                            $ahp1 = array();
-                                            $ahp2 = array();
-                                            $ahp3 = array();
-                                            $ahp4 = array();
+                                            
                                              ?>
                                             <td>Jenis Tumbuhan</td>
                                             <td><?php 
-                                                $ahp1[0]=1;
-                                                echo $ahp1[0];
+                                                echo $totalan['a11'];
                                              ?></td>
                                             <td><?php 
-                                                $ahp1[1]=5;
-                                                echo $ahp1[1];
+                                                
+                                                echo $totalan['a12'];
                                              ?></td>
                                             <td><?php 
-                                                $ahp1[2]=3;
-                                                echo $ahp1[2];
+                                                
+                                                echo $totalan['a13'];
                                              ?></td>
                                             <td><?php 
-                                                $ahp1[3]=2;
-                                                echo $ahp1[3];
+                                                
+                                                echo $totalan['a14'];
                                              ?></td>
                                         </tr>
 
                                         <tr>
                                             <td>Cara Pengolahan</td>
                                             <td><?php 
-                                                $ahp2[0]=0.20;
-                                                echo $ahp2[0];
+                                                
+                                                echo $totalan['a21'];
                                              ?></td>
                                             <td><?php 
-                                                $ahp2[1]=1;
-                                                echo $ahp2[1];
+                                                
+                                                echo $totalan['a22'];
                                              ?></td>
                                             <td><?php 
-                                                $ahp2[2]=0.50;
-                                                echo $ahp2[2];
+                                                
+                                                echo $totalan['a23'];
                                              ?></td>
                                             <td><?php 
-                                                $ahp2[3]=0.33;
-                                                echo $ahp2[3];
+                                                
+                                                echo $totalan['a24'];
                                              ?></td>
                                         </tr>
 
                                         <tr>
                                             <td>Cara Pemanfaatan</td>
                                             <td><?php 
-                                                $ahp3[0]=0.33;
-                                                echo $ahp3[0];
+                                                    
+                                                echo $totalan['a31'];
                                              ?></td>
                                             <td><?php 
-                                                $ahp3[1]=2;
-                                                echo $ahp3[1];
+                                                
+                                                echo $totalan['a32'];
                                              ?></td>
                                             <td><?php 
-                                                $ahp3[2]=1;
-                                                echo $ahp3[2];
+                                                
+                                                echo $totalan['a33'];
                                              ?></td>
                                             <td><?php 
-                                                $ahp3[3]=0.25;
-                                                echo $ahp3[3];
+                                                
+                                                echo $totalan['a34'];
                                              ?></td>
                                         </tr>
 
                                         <tr>
                                             <td>Bagian Tumbuhan</td>
                                             <td><?php 
-                                                $ahp4[0]=0.5;
-                                                echo $ahp4[0];
+                                               
+                                                echo $totalan['a41'];
                                              ?></td>
                                             <td><?php 
-                                                $ahp4[1]=3;
-                                                echo $ahp4[1];
+                                                
+                                                echo $totalan['a42'];
                                              ?></td>
                                             <td><?php 
-                                                $ahp4[2]=4;
-                                                echo $ahp4[2];
+                                                
+                                                echo $totalan['a43'];
                                              ?></td>
                                             <td><?php 
-                                                $ahp4[3]=1;
-                                                echo $ahp4[3];
+                                                
+                                                echo $totalan['a44'];
                                              ?></td>
                                         </tr>
+
                                         <tr>
                                             <td>Jumlah</td>
                                             <td><?php 
-                                            $tahp[0] = $ahp1[0]+$ahp2[0]+$ahp3[0]+$ahp4[0];
+                                            
                                             echo $tahp[0]; ?></td>
                                             <td><?php 
-                                            $tahp[1] = $ahp1[1]+$ahp2[1]+$ahp3[1]+$ahp4[1];
+                                            
                                             echo $tahp[1]; ?></td>
                                             <td><?php 
-                                            $tahp[2] = $ahp1[2]+$ahp2[2]+$ahp3[2]+$ahp4[2];
+                                            
                                             echo $tahp[2]; ?></td>
                                             <td><?php 
-                                            $tahp[3] = $ahp1[3]+$ahp2[3]+$ahp3[3]+$ahp4[3];
+                                            
                                             echo $tahp[3]; ?></td>
                                         </tr>
                                     </tbody>
                             </table>
+                            
                             </table>
                                 <h3>Matriks Normalisasi</h3>
                                     <table class="table table-hovered table-bordered">
@@ -335,9 +341,6 @@ session_start();
                                                     $tm[5]=$eigen[0]+$eigen[1]+$eigen[2]+$eigen[3];
                                                      echo $tm[5];?></td>
                                             </tr>
-
-
-
                                         </tbody>
                                     </table>
 
@@ -356,7 +359,7 @@ session_start();
                                                 </td>
                                                 
                                                 <td rowspan="2"><?php 
-                                                $cr = $ci/0.9;
+                                                $cr = (($ci-4)/3)/0.9;
                                                 echo $cr;
                                                  ?></td>
                                             </tr>
@@ -540,9 +543,9 @@ session_start();
                             <li><a data-toggle="tab" href="#Kudis">Kudis</a></li>
                             <li><a data-toggle="tab" href="#Gatal">Gatal</a></li>
                             <li><a data-toggle="tab" href="#Kutil">Kutil</a></li>
-                            <li><a data-toggle="tab" href="#Cacar">Cacar</a></li>
-                            <li><a data-toggle="tab" href="#Bekas">Bekas Luka</a></li>
                             <li><a data-toggle="tab" href="#Ketombe">Ketombe</a></li>
+                            <li><a data-toggle="tab" href="#Cacar">Cacar</a></li>
+                            <li><a data-toggle="tab" href="#Krumut">Krumut</a></li>
 
                         </ul>
                         <br><br>
@@ -624,7 +627,7 @@ session_start();
                                                      echo $k2[$no];
                                                  }else{
                                                     $k2[$no] = 0;
-                                                echo $k1[$no];
+                                                echo $k2[$no];
                                                  }
 
                                                   ?>
@@ -5480,13 +5483,680 @@ session_start();
                                     </tbody>
                                 </table>
                             </div>
+                            <!-- Cacar -->
+                            <div id="Cacar" class="tab-pane">
+                                <h3>Matriks Normalisasi</h3>
+                                <table class="table table-hovered table-bordered">
+                                    <thead>
+                                        <td>Nama Tumbuhan</td>
+                                        <td>Cara Pengolahan</td>
+                                        <td>Cara Pemanfaatan</td>
+                                        <td>Bagian Tumbuhan</td>
+                                        <td>Jenis Tumbuhan</td>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+                                        $no = 0;
+                                        $k1 = array();
+                                        $k2 = array();
+                                        $k3 = array();
+                                        $k4 = array();
+                                         
+                                        $sql = "SELECT * FROM tumbuhan_obat where khasiat = 'Cacar'";
+                                            $result = $dbh -> query($sql);
+                                            foreach ($dbh->query($sql) as $datas) :
+                                         ?>
+                                         <tr>
+                                             <td><?php echo $datas['nama_tumbuhan']; ?></td>
+                                             <td>
+                                                <?php 
+                                                if($datas['cara_pengolahan'] == "Ditumbuk") {
+                                                    $k1[$no] = $sub[5]/$total;
+                                                echo $k1[$no];
+                                                }elseif($datas['cara_pengolahan'] == "Direbus") {
+                                                    
+                                                    $k1[$no] = $sub[6]/$total;
+                                                echo $k1[$no];
+                                                }elseif($datas['cara_pengolahan'] == "Langsung") {
+                                                    
+                                                    $k1[$no] = $sub[7]/$total;
+                                                echo $k1[$no];
+                                                }elseif($datas['cara_pengolahan'] == "Diparut") {
+                                                    
+                                                    $k1[$no] = $sub[8]/$total;
+                                                echo $k1[$no];
+                                                }elseif($datas['cara_pengolahan'] == "Dibakar") {
+                                                    
+                                                    $k1[$no] = $sub[9]/$total;
+                                                echo $k1[$no];
+                                                }else{
+                                                    $k1[$no] = 0;
+                                                    echo $k1[$no];
+                                                }
+                                                 ?> 
+                                                
+                                             </td>
+                                             <td>
+                                                 <?php 
+                                                 if($datas['cara_penggunaan']== "Dimakan") {
+                                                     
+                                                     $k2[$no] = $sub[10]/$total;
+                                                echo $k2[$no];
+                                                 }elseif($datas['cara_penggunaan']== "Ditempel") {
+                                                     
+                                                     $k2[$no] = $sub[11]/$total;
+                                                echo $k2[$no];
+                                                 }elseif($datas['cara_penggunaan']== "Diminum") {
+                                                     
+                                                     $k2[$no] = $sub[12]/$total;
+                                                echo $k2[$no];
+                                                 }elseif($datas['cara_penggunaan']== "Dioleskan") {
+                                                     
+                                                     $k2[$no] = $sub[13]/$total;
+                                                echo $k2[$no];
+                                                 }elseif($datas['cara_penggunaan']== "Mandi") {
+                                                     
+                                                     $k2[$no] = $sub[14]/$total;
+                                                     echo $k2[$no];
+                                                 }else{
+                                                    $k2[$no] = 0;
+                                                echo $k2[$no];
+                                                 }
+
+                                                  ?>
+                                             </td>
+                                             <td>
+                                                 <?php 
+
+                                                 if($datas['bagian_tumbuhan'] == "Daun") {
+                                                    $k3[$no] = $sub[15]/$total;
+                                                    echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Akar") {
+                                                     
+                                                     $k3[$no] = $sub[16]/$total;
+                                                    echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Buah") {
+                                                     
+                                                     $k3[$no] = $sub[17]/$total;
+                                                    echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Rimpang") {
+                                                     
+                                                     $k3[$no] = $sub[18]/$total;
+                                                    echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Batang") {
+                                                     
+                                                     $k3[$no] = $sub[19]/$total;
+                                                    echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Getah") {
+                                                    
+                                                     $k3[$no] = $sub[20]/$total;
+                                                    echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Bunga") {
+                                                     
+                                                     $k3[$no] = $sub[21]/$total;
+                                                    echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                     
+                                                     $k3[$no] = $sub[22]/$total;
+                                                    echo $k3[$no];
+                                                 }else{
+                                                     $k3[$no] = 0;
+                                                     echo $k3[$no];
+                                                 }
+                                                  ?>
+                                             </td>
+                                             <td><?php
+                                             if($datas['jenis_tumbuhan'] == "Pohon") {
+                                                $k4[$no] = $sub[0]/$total;
+                                                echo $k4[$no];
+                                                }elseif($datas['jenis_tumbuhan'] == "Perdu"){
+                                                $k4[$no] = $sub[1]/$total;
+                                                echo $k4[$no];
+                                                }elseif ($datas['jenis_tumbuhan'] == "Liana") {
+                                                $k4[$no] = $sub[2]/$total;
+                                                echo $k4[$no];
+                                                }elseif ($datas['jenis_tumbuhan'] == "Semak") {
+                                                $k4[$no] = $sub[3]/$total;
+                                                echo $k4[$no];
+                                                }elseif ($datas['jenis_tumbuhan'] == "Herba") {
+                                                $k4[$no] = $sub[4]/$total;
+                                                echo $k4[$no];
+                                                }else{
+                                                $k4[$no] = 0;
+                                                echo $k4[$no];
+                                                }?></td>
+
+                                         </tr>
+                                         <?php 
+                                         $no++;
+                                     endforeach;
+                                          ?>
+                                    </tbody>
+                                </table>
+
+                                <h3>Normalisasi Rij</h3>
+                                <hr>
+                                <table class="table table-bordered table-hovered">
+                                    <thead>
+                                        <td>Nama Tumbuhan</td>
+                                        <td>Cara Pengolahan</td>
+                                        <td>Cara Pemanfaatan</td>
+                                        <td>Bagian Tumbuhan</td>
+                                        <td>Jenis Tumbuhan</td>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+
+                                        $no = 0;
+                                        $rij1 = array();
+                                        $rij2 = array();
+                                        $rij3 = array();
+                                        $rij4 = array();
+                                         
+                                        $sql = "SELECT * FROM tumbuhan_obat where khasiat = 'Cacar'";
+                                            $result = $dbh -> query($sql);
+                                            foreach ($dbh->query($sql) as $datas) :
+                                         ?>
+
+                                         <tr>
+                                             <td><?php echo $datas['nama_tumbuhan']; ?></td>
+                                             <td>
+                                                <?php 
+                                                if($datas['cara_pengolahan'] == "Ditumbuk") {
+                                                    $rij1[$no] = $k1[$no]/max($k1);
+                                                    echo $rij1[$no];
+                                                }elseif($datas['cara_pengolahan'] == "Direbus") {
+                                                    
+                                                    $rij1[$no] = $k1[$no]/max($k1);
+                                                    echo $rij1[$no];
+                                                }elseif($datas['cara_pengolahan'] == "Langsung") {
+                                                    
+                                                    $rij1[$no] = $k1[$no]/max($k1);
+                                                    echo $rij1[$no];
+                                                }elseif($datas['cara_pengolahan'] == "Diparut") {
+                                                    
+                                                    $rij1[$no] = $k1[$no]/max($k1);
+                                                    echo $rij1[$no];
+                                                }elseif($datas['cara_pengolahan'] == "Dibakar") {
+                                                    
+                                                    $rij1[$no] = $k1[$no]/max($k1);
+                                                    echo $rij1[$no];
+                                                }else{
+                                                    $rij1[$no] = $k1[$no]/max($k1);
+                                                    echo $rij1[$no];
+                                                }
+                                                 ?> 
+                                                
+                                             </td>
+                                             <td>
+                                                 <?php 
+                                                 if($datas['cara_penggunaan']== "Dimakan") {
+                                                     
+                                                    $rij2[$no] = $k2[$no]/max($k2);
+                                                    echo $rij2[$no];
+                                                 }elseif($datas['cara_penggunaan']== "Ditempel") {
+                                                     
+                                                     $rij2[$no] = $k2[$no]/max($k2);
+                                                    echo $rij2[$no];
+                                                 }elseif($datas['cara_penggunaan']== "Diminum") {
+                                                     
+                                                     $rij2[$no] = $k2[$no]/max($k2);
+                                                    echo $rij2[$no];
+                                                 }elseif($datas['cara_penggunaan']== "Dioleskan") {
+                                                     
+                                                     $rij2[$no] = $k2[$no]/max($k2);
+                                                    echo $rij2[$no];
+                                                 }elseif($datas['cara_penggunaan']== "Mandi") {
+                                                     
+                                                     $rij2[$no] = $k2[$no]/max($k2);
+                                                    echo $rij2[$no];
+                                                 }else{
+                                                    $rij2[$no] = $k2[$no]/max($k2);
+                                                    echo $rij2[$no];
+                                                 }
+
+                                                  ?>
+                                             </td>
+                                             <td>
+                                                 <?php 
+
+                                                 if($datas['bagian_tumbuhan'] == "Daun") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Akar") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Buah") {
+                                                     $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Rimpang") {
+                                                     $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Batang") {
+                                                     $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Getah") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Bunga") {
+                                                     $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }else{
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }
+                                                  ?>
+                                             </td>
+                                             <td><?php
+                                             if($datas['jenis_tumbuhan'] == "Pohon") {
+                                                $rij4[$no] = $k4[$no]/max($k4);
+                                                    echo $rij4[$no];
+                                                }elseif($datas['jenis_tumbuhan'] == "Perdu"){
+                                                $rij4[$no] = $k4[$no]/max($k4);
+                                                    echo $rij4[$no];
+                                                }elseif ($datas['jenis_tumbuhan'] == "Liana") {
+                                                $rij4[$no] = $k4[$no]/max($k4);
+                                                    echo $rij4[$no];
+                                                }elseif ($datas['jenis_tumbuhan'] == "Semak") {
+                                                $rij4[$no] = $k4[$no]/max($k4);
+                                                    echo $rij4[$no];
+                                                }elseif ($datas['jenis_tumbuhan'] == "Herba") {
+                                                $rij4[$no] = $k4[$no]/max($k4);
+                                                    echo $rij4[$no];
+                                                }else{
+                                                $rij4[$no] = $k4[$no]/max($k4);
+                                                    echo $rij4[$no];
+                                                }?></td>
+                                         </tr>
+                                         <?php 
+                                         $no++;
+                                     endforeach;
+                                          ?>
+                                    </tbody>
+                                </table>
+                                <h3>Nilai Preferensi (Qi)</h3>
+                                <table class="table table-hovered table-bordered">
+                                    <thead>
+                                        <td>Nama Tumbuhan</td>
+                                        <td>Nilai Qi</td>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+
+                                        $no = 0;
+                                        $qi = array();
+                                         
+                                        $sql = "SELECT * FROM tumbuhan_obat where khasiat = 'Cacar'";
+                                            $result = $dbh -> query($sql);
+                                            foreach ($dbh->query($sql) as $datas) :
+                                         ?>
+                                         <tr>
+                                           <td><?php echo $datas['nama_tumbuhan']; ?></td>
+                                             <td><?php 
+                                                $qi[$no]=(0.5*(($rij1[$no]*$eigen[1])+($rij2[$no]*$eigen[2])+($rij3[$no]*$eigen[3])+($rij4[$no]*$eigen[0])))+(0.5*(pow($rij1[$no], $eigen[1])+pow($rij2[$no],$eigen[2])+pow($rij3[$no],$eigen[3])+pow($rij4[$no],$eigen[0])));
+                                                echo $qi[$no];
+                                                ?> 
+                                             </td>
+                                         </tr>
+                                         <?php
+                                         $ranking = "update tumbuhan_obat SET qi = '$qi[$no]' where id_tumbuhan ='$datas[id_tumbuhan]'";
+                                            if ($dbh->query($ranking) === TRUE) {
+                                               }  
+                                         $no++;
+                                     endforeach;
+                                          ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <!-- Krumut -->
+                            <div id="Krumut" class="tab-pane">
+                                <h3>Matriks Normalisasi</h3>
+                                <table class="table table-hovered table-bordered">
+                                    <thead>
+                                        <td>Nama Tumbuhan</td>
+                                        <td>Cara Pengolahan</td>
+                                        <td>Cara Pemanfaatan</td>
+                                        <td>Bagian Tumbuhan</td>
+                                        <td>Jenis Tumbuhan</td>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+                                        $no = 0;
+                                        $k1 = array();
+                                        $k2 = array();
+                                        $k3 = array();
+                                        $k4 = array();
+                                         
+                                        $sql = "SELECT * FROM tumbuhan_obat where khasiat = 'Krumut'";
+                                            $result = $dbh -> query($sql);
+                                            foreach ($dbh->query($sql) as $datas) :
+                                         ?>
+                                         <tr>
+                                             <td><?php echo $datas['nama_tumbuhan']; ?></td>
+                                             <td>
+                                                <?php 
+                                                if($datas['cara_pengolahan'] == "Ditumbuk") {
+                                                    $k1[$no] = $sub[5]/$total;
+                                                echo $k1[$no];
+                                                }elseif($datas['cara_pengolahan'] == "Direbus") {
+                                                    
+                                                    $k1[$no] = $sub[6]/$total;
+                                                echo $k1[$no];
+                                                }elseif($datas['cara_pengolahan'] == "Langsung") {
+                                                    
+                                                    $k1[$no] = $sub[7]/$total;
+                                                echo $k1[$no];
+                                                }elseif($datas['cara_pengolahan'] == "Diparut") {
+                                                    
+                                                    $k1[$no] = $sub[8]/$total;
+                                                echo $k1[$no];
+                                                }elseif($datas['cara_pengolahan'] == "Dibakar") {
+                                                    
+                                                    $k1[$no] = $sub[9]/$total;
+                                                echo $k1[$no];
+                                                }else{
+                                                    $k1[$no] = 0;
+                                                    echo $k1[$no];
+                                                }
+                                                 ?> 
+                                                
+                                             </td>
+                                             <td>
+                                                 <?php 
+                                                 if($datas['cara_penggunaan']== "Dimakan") {
+                                                     
+                                                     $k2[$no] = $sub[10]/$total;
+                                                echo $k2[$no];
+                                                 }elseif($datas['cara_penggunaan']== "Ditempel") {
+                                                     
+                                                     $k2[$no] = $sub[11]/$total;
+                                                echo $k2[$no];
+                                                 }elseif($datas['cara_penggunaan']== "Diminum") {
+                                                     
+                                                     $k2[$no] = $sub[12]/$total;
+                                                echo $k2[$no];
+                                                 }elseif($datas['cara_penggunaan']== "Dioleskan") {
+                                                     
+                                                     $k2[$no] = $sub[13]/$total;
+                                                echo $k2[$no];
+                                                 }elseif($datas['cara_penggunaan']== "Mandi") {
+                                                     
+                                                     $k2[$no] = $sub[14]/$total;
+                                                     echo $k2[$no];
+                                                 }else{
+                                                    $k2[$no] = 0;
+                                                echo $k2[$no];
+                                                 }
+
+                                                  ?>
+                                             </td>
+                                             <td>
+                                                 <?php 
+
+                                                 if($datas['bagian_tumbuhan'] == "Daun") {
+                                                    $k3[$no] = $sub[15]/$total;
+                                                    echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Akar") {
+                                                     
+                                                     $k3[$no] = $sub[16]/$total;
+                                                    echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Buah") {
+                                                     
+                                                     $k3[$no] = $sub[17]/$total;
+                                                    echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Rimpang") {
+                                                     
+                                                     $k3[$no] = $sub[18]/$total;
+                                                    echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Batang") {
+                                                     
+                                                     $k3[$no] = $sub[19]/$total;
+                                                    echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Getah") {
+                                                    
+                                                     $k3[$no] = $sub[20]/$total;
+                                                    echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Bunga") {
+                                                     
+                                                     $k3[$no] = $sub[21]/$total;
+                                                    echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                     
+                                                     $k3[$no] = $sub[22]/$total;
+                                                    echo $k3[$no];
+                                                 }else{
+                                                     $k3[$no] = 0;
+                                                     echo $k3[$no];
+                                                 }
+                                                  ?>
+                                             </td>
+                                             <td><?php
+                                             if($datas['jenis_tumbuhan'] == "Pohon") {
+                                                $k4[$no] = $sub[0]/$total;
+                                                echo $k4[$no];
+                                                }elseif($datas['jenis_tumbuhan'] == "Perdu"){
+                                                $k4[$no] = $sub[1]/$total;
+                                                echo $k4[$no];
+                                                }elseif ($datas['jenis_tumbuhan'] == "Liana") {
+                                                $k4[$no] = $sub[2]/$total;
+                                                echo $k4[$no];
+                                                }elseif ($datas['jenis_tumbuhan'] == "Semak") {
+                                                $k4[$no] = $sub[3]/$total;
+                                                echo $k4[$no];
+                                                }elseif ($datas['jenis_tumbuhan'] == "Herba") {
+                                                $k4[$no] = $sub[4]/$total;
+                                                echo $k4[$no];
+                                                }else{
+                                                $k4[$no] = 0;
+                                                echo $k4[$no];
+                                                }?></td>
+
+                                         </tr>
+                                         <?php 
+                                         $no++;
+                                     endforeach;
+                                          ?>
+                                    </tbody>
+                                </table>
+
+                                <h3>Normalisasi Rij</h3>
+                                <hr>
+                                <table class="table table-bordered table-hovered">
+                                    <thead>
+                                        <td>Nama Tumbuhan</td>
+                                        <td>Cara Pengolahan</td>
+                                        <td>Cara Pemanfaatan</td>
+                                        <td>Bagian Tumbuhan</td>
+                                        <td>Jenis Tumbuhan</td>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+
+                                        $no = 0;
+                                        $rij1 = array();
+                                        $rij2 = array();
+                                        $rij3 = array();
+                                        $rij4 = array();
+                                         
+                                        $sql = "SELECT * FROM tumbuhan_obat where khasiat = 'Krumut'";
+                                            $result = $dbh -> query($sql);
+                                            foreach ($dbh->query($sql) as $datas) :
+                                         ?>
+
+                                         <tr>
+                                             <td><?php echo $datas['nama_tumbuhan']; ?></td>
+                                             <td>
+                                                <?php 
+                                                if($datas['cara_pengolahan'] == "Ditumbuk") {
+                                                    $rij1[$no] = $k1[$no]/max($k1);
+                                                    echo $rij1[$no];
+                                                }elseif($datas['cara_pengolahan'] == "Direbus") {
+                                                    
+                                                    $rij1[$no] = $k1[$no]/max($k1);
+                                                    echo $rij1[$no];
+                                                }elseif($datas['cara_pengolahan'] == "Langsung") {
+                                                    
+                                                    $rij1[$no] = $k1[$no]/max($k1);
+                                                    echo $rij1[$no];
+                                                }elseif($datas['cara_pengolahan'] == "Diparut") {
+                                                    
+                                                    $rij1[$no] = $k1[$no]/max($k1);
+                                                    echo $rij1[$no];
+                                                }elseif($datas['cara_pengolahan'] == "Dibakar") {
+                                                    
+                                                    $rij1[$no] = $k1[$no]/max($k1);
+                                                    echo $rij1[$no];
+                                                }else{
+                                                    $rij1[$no] = $k1[$no]/max($k1);
+                                                    echo $rij1[$no];
+                                                }
+                                                 ?> 
+                                                
+                                             </td>
+                                             <td>
+                                                 <?php 
+                                                 if($datas['cara_penggunaan']== "Dimakan") {
+                                                     
+                                                    $rij2[$no] = $k2[$no]/max($k2);
+                                                    echo $rij2[$no];
+                                                 }elseif($datas['cara_penggunaan']== "Ditempel") {
+                                                     
+                                                     $rij2[$no] = $k2[$no]/max($k2);
+                                                    echo $rij2[$no];
+                                                 }elseif($datas['cara_penggunaan']== "Diminum") {
+                                                     
+                                                     $rij2[$no] = $k2[$no]/max($k2);
+                                                    echo $rij2[$no];
+                                                 }elseif($datas['cara_penggunaan']== "Dioleskan") {
+                                                     
+                                                     $rij2[$no] = $k2[$no]/max($k2);
+                                                    echo $rij2[$no];
+                                                 }elseif($datas['cara_penggunaan']== "Mandi") {
+                                                     
+                                                     $rij2[$no] = $k2[$no]/max($k2);
+                                                    echo $rij2[$no];
+                                                 }else{
+                                                    $rij2[$no] = $k2[$no]/max($k2);
+                                                    echo $rij2[$no];
+                                                 }
+
+                                                  ?>
+                                             </td>
+                                             <td>
+                                                 <?php 
+
+                                                 if($datas['bagian_tumbuhan'] == "Daun") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Akar") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Buah") {
+                                                     $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Rimpang") {
+                                                     $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Batang") {
+                                                     $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Getah") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Bunga") {
+                                                     $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }else{
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }
+                                                  ?>
+                                             </td>
+                                             <td><?php
+                                             if($datas['jenis_tumbuhan'] == "Pohon") {
+                                                $rij4[$no] = $k4[$no]/max($k4);
+                                                    echo $rij4[$no];
+                                                }elseif($datas['jenis_tumbuhan'] == "Perdu"){
+                                                $rij4[$no] = $k4[$no]/max($k4);
+                                                    echo $rij4[$no];
+                                                }elseif ($datas['jenis_tumbuhan'] == "Liana") {
+                                                $rij4[$no] = $k4[$no]/max($k4);
+                                                    echo $rij4[$no];
+                                                }elseif ($datas['jenis_tumbuhan'] == "Semak") {
+                                                $rij4[$no] = $k4[$no]/max($k4);
+                                                    echo $rij4[$no];
+                                                }elseif ($datas['jenis_tumbuhan'] == "Herba") {
+                                                $rij4[$no] = $k4[$no]/max($k4);
+                                                    echo $rij4[$no];
+                                                }else{
+                                                $rij4[$no] = $k4[$no]/max($k4);
+                                                    echo $rij4[$no];
+                                                }?></td>
+                                         </tr>
+                                         <?php 
+                                         $no++;
+                                     endforeach;
+                                          ?>
+                                    </tbody>
+                                </table>
+                                <h3>Nilai Preferensi (Qi)</h3>
+                                <table class="table table-hovered table-bordered">
+                                    <thead>
+                                        <td>Nama Tumbuhan</td>
+                                        <td>Nilai Qi</td>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+
+                                        $no = 0;
+                                        $qi = array();
+                                         
+                                        $sql = "SELECT * FROM tumbuhan_obat where khasiat = 'Krumut'";
+                                            $result = $dbh -> query($sql);
+                                            foreach ($dbh->query($sql) as $datas) :
+                                         ?>
+                                         <tr>
+                                           <td><?php echo $datas['nama_tumbuhan']; ?></td>
+                                             <td><?php 
+                                                $qi[$no]=(0.5*(($rij1[$no]*$eigen[1])+($rij2[$no]*$eigen[2])+($rij3[$no]*$eigen[3])+($rij4[$no]*$eigen[0])))+(0.5*(pow($rij1[$no], $eigen[1])+pow($rij2[$no],$eigen[2])+pow($rij3[$no],$eigen[3])+pow($rij4[$no],$eigen[0])));
+                                                echo $qi[$no];
+                                                ?> 
+                                             </td>
+                                         </tr>
+                                         <?php
+                                         $ranking = "update tumbuhan_obat SET qi = '$qi[$no]' where id_tumbuhan ='$datas[id_tumbuhan]'";
+                                            if ($dbh->query($ranking) === TRUE) {
+                                               }  
+                                         $no++;
+                                     endforeach;
+                                          ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
                         </div>
-                        </div>
+                       
 
                         </div>
 
                 </div>
         </div>
-
+<script>
+function ubahBobot() {
+  var x = document.getElementById("bobot");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
     </body>
-</html>
+    </html>

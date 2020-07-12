@@ -2,6 +2,9 @@
 include "koneksi.php";
 $sakit = $_POST['sakit'];
 $guna = $_POST['guna'];
+$bagian = $_POST['bagian'];
+$jenis = $_POST['jenis'];
+$olah = $_POST['olah'];
 
  ?>
 
@@ -25,8 +28,8 @@ $guna = $_POST['guna'];
 
         <div class="wrapper">
             <!-- Sidebar Holder -->
-            <nav id="sidebar">
-                <div class="sidebar-header">
+            <nav id="sidebar" style="background-color: #82b74b">
+                <div class="sidebar-header" style="background-color: #82b74b"> 
                     <a href="index.php"><center>
                     <h3><center>SPK PEMILIHAN TUMBUHAN HUTAN BERKHASIAT OBAT UNTUK PENYAKIT KULIT</center></h3>    
                     </center>
@@ -64,10 +67,10 @@ $guna = $_POST['guna'];
             <div id="content">
 
                 <nav class="navbar navbar-default">
-                    <div class="container-fluid">
+                    <div class="container">
 
                         <div class="navbar-header">
-                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                            <button type="button" id="sidebarCollapse" class="btn btn-success navbar-btn">
                                 <i class="glyphicon glyphicon-align-left"></i>
                                 <span>Toggle Sidebar</span>
                             </button>
@@ -79,12 +82,14 @@ $guna = $_POST['guna'];
                     </div>
                 </nav>
                 <div class="panel panel-default">
+                
                 <center>
                 <div class="panel panel-heading">
                     <h2>Hasil Rekomendasi Penyakit <?php echo $sakit ?></h2>
                 </div>
                 <div class="panel-body">
-                   <table class="table table-responsive table-hover table-bordered">
+
+                    <table class="table table-responsive table-hover table-bordered">
                        <thead>
                            <tr>
                                <th>NO</th>
@@ -98,9 +103,17 @@ $guna = $_POST['guna'];
                            </tr>
                        </thead>
                        <tbody>
-                           <?php 
-                            $sql = "select tumbuhan_obat.* from tumbuhan_obat where khasiat = '$sakit' AND cara_penggunaan = '$guna' ORDER BY qi DESC";
-                            $no  = 1; 
+                           <?php
+                           $no  = 1;
+                           
+                           foreach ($_POST['guna'] as $gunawan) {
+                            
+                            foreach ($_POST['olah'] as $olahan) {
+                                foreach ($_POST['jenis'] as $jenius) {
+                                    foreach ($_POST['bagian'] as $bagio) {
+                            
+                            $sql = "select tumbuhan_obat.* from tumbuhan_obat where khasiat = '$sakit' AND cara_penggunaan = '$gunawan' AND cara_pengolahan = '$olahan' AND jenis_tumbuhan = '$jenius' AND bagian_tumbuhan = '$bagio' ORDER BY qi DESC";
+
                             foreach ($dbh->query($sql) as $data):
                             ?>
                             <tr>
@@ -116,16 +129,28 @@ $guna = $_POST['guna'];
                                 <td><?php echo $data['qi'] ?></td>
                             </tr>
                             <?php
-                        $no++;  
+                          
+                        
+                    $no++;    
                         endforeach;
+                         }
+                        }
+                    }
+                    
+                    }
+                
+
                          ?>
                        </tbody>
                    </table>
+                   
                 <br><br><br>
                 </center>
                 </div>
-                
 
+                </div>
+
+            
                 </div>
         </div>
 

@@ -24,8 +24,8 @@ $data=mysqli_fetch_array($query);
 
         <div class="wrapper">
             <!-- Sidebar Holder -->
-            <nav id="sidebar">
-                <div class="sidebar-header">
+            <nav id="sidebar" style="background-color: #82b74b">
+                <div class="sidebar-header" style="background-color: #82b74b">
                     <a href="index.php"><center>
                     <h3><center>SPK PEMILIHAN TUMBUHAN HUTAN BERKHASIAT OBAT UNTUK PENYAKIT KULIT</center></h3>    
                     </center>
@@ -66,7 +66,7 @@ $data=mysqli_fetch_array($query);
                     <div class="container-fluid">
 
                         <div class="navbar-header">
-                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                            <button type="button" id="sidebarCollapse" class="btn btn-success navbar-btn">
                                 <i class="glyphicon glyphicon-align-left"></i>
                                 <span>Toggle Sidebar</span>
                             </button>
@@ -108,7 +108,7 @@ $data=mysqli_fetch_array($query);
                 </div>
                 <div class="panel-body">
                     <p>
-                    <?php echo $data['resep'] ?>         
+                    <?php echo nl2br($data['resep']); ?>         
                     </p>
                 </div>
                 

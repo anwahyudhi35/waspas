@@ -6,6 +6,7 @@ $nama = $_POST['nama'];
 $jenis = $_POST['jenis'];
 $olahan = $_POST['diolah'];
 $guna = $_POST['digunakan'];
+$latin = $_POST['latin'];
 $khasiat = $_POST['khasiat'];
 
 $resep = $_POST['resep'];
@@ -19,7 +20,7 @@ $flex = strtolower(end($file_ext));
 $filenamenew = $nama.".".$flex;
 $simpan = '../../gambar/'.$filenamenew;
 
-$sql=mysqli_query($dbh,"UPDATE tumbuhan_obat set nama_tumbuhan='$nama', jenis_tumbuhan = '$jenis', cara_pengolahan = '$olahan', cara_penggunaan = '$guna', khasiat = '$khasiat', gambar = '$filenamenew', resep = '$resep' WHERE id_tumbuhan = '$id'");
+$sql=mysqli_query($dbh,"UPDATE tumbuhan_obat set nama_tumbuhan='$nama', jenis_tumbuhan = '$jenis', cara_pengolahan = '$olahan', cara_penggunaan = '$guna', khasiat = '$khasiat', gambar = '$filenamenew', resep = '$resep', latin = '$latin' WHERE id_tumbuhan = '$id'");
  
 if ($sql) {
 	move_uploaded_file($_FILES['gambar']['tmp_name'], $simpan);

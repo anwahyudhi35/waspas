@@ -21,8 +21,8 @@ session_start();
 
         <div class="wrapper">
             <!-- Sidebar Holder -->
-            <nav id="sidebar">
-                <div class="sidebar-header">
+            <nav id="sidebar" style="background-color: #82b74b">
+                <div class="sidebar-header" style="background-color: #82b74b">
                     <a href="../index-admin.php">
                     <h3><center>SPK PEMILIHAN TUMBUHAN HUTAN BERKHASIAT OBAT UNTUK PENYAKIT KULIT</center></h3>
                         <strong>
@@ -31,12 +31,12 @@ session_start();
                 </div>
 
                 <ul class="list-unstyled components">
-                    <li class="active">
+                    <li>
                         <a href="data-tanaman-admin.php">
                             <i class="glyphicon glyphicon-briefcase"></i>
                             Data Tanaman Obat
                         </a>
-                        <a href="../perhitungan/hitungan.php" aria-expanded="false">
+                        <a href="../perhitungan/hitungan.php">
                             <i class="glyphicon glyphicon-duplicate"></i>
                             Perhitungan
                         </a>
@@ -58,7 +58,7 @@ session_start();
                     <div class="container-fluid">
                       <div class="mx-auto">
                         <div class="navbar-header">
-                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                            <button type="button" id="sidebarCollapse" class="btn btn-success navbar-btn">
                                 <i class="glyphicon glyphicon-align-left"></i>
                                 <span>Toggle Sidebar</span>
                             </button>
@@ -71,7 +71,8 @@ session_start();
                                 <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    
+                                    <li><?php $id = $_SESSION['id_amin'] ?>
+                                        <a href="../edit-profil.php?siapa=<?php echo $id ?>">Ubah</a></li>
                                     <li><a href="../logout.php">Log out</a></li>
                                  </ul>
                             </div>
@@ -105,6 +106,7 @@ session_start();
                         <tr>
                           <td>No</td>
                           <td>Nama Tumbuhan</td>
+                          <td>Latin</td>
                           <td>Jenis Tumbuhan</td>
                           <td>Bagian Tumbuhan</td>
                           <td>Cara Pengolahan</td>
@@ -122,6 +124,7 @@ session_start();
                         <tr>
                           <td> <?php echo $no; ?> </td>
                           <td> <?php echo $data['nama_tumbuhan']; ?></td>
+                          <td> <i><?php echo $data['latin']; ?></i></td>
                           <td><?php echo $data['jenis_tumbuhan']; ?></td>
                           <td>Bagian Tumbuhan</td>
                           <td><?php echo $data['cara_pengolahan']; ?></td>

@@ -26,8 +26,8 @@ $data=mysqli_fetch_array($query);
 
         <div class="wrapper">
             <!-- Sidebar Holder -->
-            <nav id="sidebar">
-                <div class="sidebar-header">
+            <nav id="sidebar" style="background-color: #82b74b">
+                <div class="sidebar-header" style="background-color: #82b74b">
                     <a href="../index-admin.php">
                    <h3><center>SPK PEMILIHAN TUMBUHAN HUTAN BERKHASIAT OBAT UNTUK PENYAKIT KULIT</center></h3>
                         <strong>
@@ -35,8 +35,8 @@ $data=mysqli_fetch_array($query);
                         </a></strong>
                 </div>
 
-                <ul class="list-unstyled components">
-                    <li class="active">
+                <ul class="list-unstyled components" >
+                    <li>
                         <a href="data-tanaman-admin.php">
                             <i class="glyphicon glyphicon-briefcase"></i>
                             Data Tanaman Obat
@@ -63,7 +63,7 @@ $data=mysqli_fetch_array($query);
                     <div class="container-fluid">
 
                         <div class="navbar-header">
-                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                            <button type="button" id="sidebarCollapse" class="btn btn-success navbar-btn">
                                 <i class="glyphicon glyphicon-align-left"></i>
                                 <span>Toggle Sidebar</span>
                             </button>
@@ -76,6 +76,8 @@ $data=mysqli_fetch_array($query);
                                 <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
+                                    <li><?php $id = $_SESSION['id_amin'] ?>
+                                        <a href="../edit-profil.php?siapa=<?php echo $id ?>">Ubah</a></li>
                                     
                                     <li><a href="../logout.php">Log out</a></li>
                                  </ul>
@@ -86,7 +88,7 @@ $data=mysqli_fetch_array($query);
                 <div class="panel panel-default">
                 <center>
                 <div class="panel panel-heading">
-                    <h2>Tambah Data Tanaman</h2>
+                    <h2>Ubah Data Tanaman</h2>
                 </div>
               </center>
                 <!-- 
@@ -122,6 +124,7 @@ $data=mysqli_fetch_array($query);
                          <option value="Getah"<?php if($data['bagian_tumbuhan'] == 'Getah') { ?> selected="selected"<?php } ?>>Getah</option>
                          <option value="Bunga"<?php if($data['bagian_tumbuhan'] == 'Bunga') { ?> selected="selected"<?php } ?>>Bunga</option>
                          <option value="Kulit Batang"<?php if($data['bagian_tumbuhan'] == 'Kulit Batang') { ?> selected="selected"<?php } ?>>Kulit Batang</option>
+                         <option value="Biji" <?php if($data['bagian_tumbuhan'] == 'Biji') { ?> selected="selected"<?php } ?>>Biji</option>
                       </select>
                     </div>
 
@@ -179,6 +182,10 @@ $data=mysqli_fetch_array($query);
 
                         
                       </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Latin</label>
+                      <input type="text" name="latin" cols="60" rows="10" class="form-control" value="<?php echo $data['latin']; ?>">   
                     </div>
                     <div class="form-group">
                       <label>Resep</label>

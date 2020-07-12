@@ -21,8 +21,8 @@ include "koneksi.php";
 
         <div class="wrapper">
             <!-- Sidebar Holder -->
-          <nav id="sidebar">
-                <div class="sidebar-header">
+          <nav id="sidebar" style="background-color: #82b74b">
+                <div class="sidebar-header" style="background-color: #82b74b">
                     <a href="index.php"><center>
                     <h3><center>SPK PEMILIHAN TUMBUHAN HUTAN BERKHASIAT OBAT UNTUK PENYAKIT KULIT</center></h3>    
                     </center>
@@ -63,7 +63,7 @@ include "koneksi.php";
                     <div class="container-fluid">
 
                         <div class="navbar-header">
-                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                            <button type="button" id="sidebarCollapse" class="btn btn-success navbar-btn">
                                 <i class="glyphicon glyphicon-align-left"></i>
                                 <span>Toggle Sidebar</span>
                             </button>
@@ -106,8 +106,8 @@ include "koneksi.php";
                    <!-- seragamkan ukurannya -->
 
 
-                  <div class="col-md-2">
-                    <div class="thumbnail">
+                  <div class="col-lg-3">
+                    
                       <!-- link berdasarkan nama tapi ga buat file baru -->
                       <a href="wiki_tumbuhan.php?pohon=<?php echo $data['id_tumbuhan'] ?>">
                         <img src="gambar/<?php 
@@ -117,14 +117,14 @@ include "koneksi.php";
                             echo $data['gambar']; 
                         
                         }?>"
-                        class="img-thumbnail" width="300" heigth="300" >
-                        <div class="caption">
-                          <p>
+                        alt="<?php echo $data['nama_tumbuhan']; ?>" width="140" height="120">
+                        <div class="desc">
+                          <p style="font-size:13px;">
                            <?php echo $data['nama_tumbuhan']; ?> 
                           </p>
                         </div>
                       </a>
-                    </div>
+                    
                   </div>
                   <?php 
                  } ?>

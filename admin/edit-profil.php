@@ -1,10 +1,12 @@
 <?php 
 include "../koneksi.php";
 session_start();
+$id = $_GET['siapa'];
+$query=mysqli_query($dbh,"select * from admin where id_admin='$id'");
+$data=mysqli_fetch_array($query);
+
+
  ?>
-
-
-<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -14,9 +16,9 @@ session_start();
         <title>SISTEM PENDUKUNG KEPUTUSAN PEMILIHAN TUMBUHAN HUTAN BERKHASIAT OBAT UNTUK PENYAKIT KULIT</title>
 
          <!-- Bootstrap CSS CDN -->
-        <link rel="stylesheet" href="..\asset\bootstrap\css\bootstrap.css">
+        <link rel="stylesheet" href="../../asset/bootstrap/css/bootstrap.css">
         <!-- Our Custom CSS -->
-        <link rel="stylesheet" href="../asset/index.css">
+        <link rel="stylesheet" href="../../asset/index.css">
     </head>
     <body>
 
@@ -27,7 +29,7 @@ session_start();
             <nav id="sidebar" style="background-color: #82b74b">
                 <div class="sidebar-header" style="background-color: #82b74b">
                     <a href="index-admin.php">
-                    <h3><center>SPK PEMILIHAN TUMBUHAN HUTAN BERKHASIAT OBAT UNTUK PENYAKIT KULIT</center></h3>
+                   <h3><center>SPK PEMILIHAN TUMBUHAN HUTAN BERKHASIAT OBAT UNTUK PENYAKIT KULIT</center></h3>
                         <strong>
                             <i class="glyphicon glyphicon-home"></i>
                         </a></strong>
@@ -48,7 +50,7 @@ session_start();
                 <ul class="list-unstyled CTAs">
                     <hr>
                     <center>
-                        <h4><?php echo date('Y') ?></h4>
+                        <h4>  <?php echo date('Y') ?></h4>
                     </center>
                     <hr>  
                 </ul>
@@ -58,8 +60,7 @@ session_start();
             <div id="content">
 
                 <nav class="navbar navbar-default">
-                    <div class="container-fluid">
-
+                    <div class="container">
                         <div class="navbar-header">
                             <button type="button" id="sidebarCollapse" class="btn btn-success navbar-btn">
                                 <i class="glyphicon glyphicon-align-left"></i>
@@ -67,17 +68,14 @@ session_start();
                             </button>
                         </div>
 
-                        <ul class="nav navbar-nav navbar-right" >
-                            <div class="dropdown" > <!-- warna dropdown menu diubah-->
+                        <ul class="nav navbar-nav navbar-right">
+                            <p></p><div class="dropdown"> <!-- warna dropdown menu diubah-->
                                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
                                     <span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['nama']; ?>
                                 <span class="caret"></span>
                                 </button>
-                                <ul class="dropdown-menu">
-                                     <li>
-                                        <?php $id = $_SESSION['id_amin'] ?>
-                                        <a href="edit-profil.php?siapa=<?php echo $id ?>">Ubah</a></li>
-                                    <li><a href="logout.php">Log out</a></li>
+                                <ul class="dropdown-menu">   
+                                    <li><a href="../logout.php">Log out</a></li>
                                  </ul>
                             </div>
                         </ul>
@@ -86,25 +84,48 @@ session_start();
                 <div class="panel panel-default">
                 <center>
                 <div class="panel panel-heading">
-                    <h2>Halaman Admin</h2>
-                    <h3>Selamat datang, <?php echo $_SESSION['nama']; ?></h3>
+                    <h2>Edit Profil</h2>
                 </div>
-                <div class="panel-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
-                <a href="tanaman/data-tanaman-admin.php" class="btn btn-success">Data Tanaman Obat</a>
-                <a href="perhitungan/hitungan.php" class="btn btn-success">Hasil Perhitungan</a>
-                <br><br>
-                </center>
+              </center>
+                <div class="panel panel-body">
+                 <form class="form" action="henshin.php?siapa=<?php echo $data['id_admin'] ?>" method="POST" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" name="username" class="form-control" value="<?php echo $data['username'] ?>" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Nama Admin</label>
+                    <input type="text" name="nama" class="form-control" value="<?php echo $data['nama_admin'] ?>" required>
+                  </div>
+
+                  <div class="form-group">
+                  <label>Password lama:</label>
+                  <input type="password" name="passlama" class="form-control" readonly id="alamatpalsu" value="<?php echo $data['password'] ?>">
+                  </div>  
+
+                  <div class="form-group">
+                    <label>Password baru:</label>
+                    <input type="password" name="passbaru" class="form-control" required id="alamatbaru">
+
+                    <br>
+                    <input type="button" onclick="myFunction1()" class="btn" value="Lihat Password">
+                  </div>
+
+
+              <input type="reset" required name="Reset" class="btn btn-warning pull-right btn-fill"> 
+              <input type="submit" required name="ganti" value = "Simpan" class="btn btn-success btn-fill" onclick="return confirm('Apa anda yakin dengan Perubahan Data Profil?');">
+        </div>
+                  </form>
+          
+          
+                  
                 
+
                 </div>
 
 
-                </div>
+
+                
         </div>
 
 
@@ -125,3 +146,23 @@ session_start();
          </script>
     </body>
 </html>
+
+<script>
+var x = document.getElementById("alamatpalsu");
+var y = document.getElementById("alamatbaru");
+function myFunction() {
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+function myFunction1() {
+  if (y.type === "password") {
+    y.type = "text";
+  } else {
+    y.type = "password";
+  }
+}
+</script>
