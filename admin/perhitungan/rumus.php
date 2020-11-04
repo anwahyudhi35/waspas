@@ -88,7 +88,7 @@ foreach($dbh->query($ahp1) as $data) :
 		$sub[20]++;
 	}elseif($data['bagian_tumbuhan'] == "Bunga") {
 		$sub[21]++;
-	}elseif($data['bagian_tumbuhan'] == "Kulit Batang") {
+	}elseif($data['bagian_tumbuhan'] == "KulitBatang") {
 		$sub[22]++;
 	}elseif($data['bagian_tumbuhan'] == "Biji") {
 		$sub[23]++;

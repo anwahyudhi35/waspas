@@ -117,7 +117,7 @@ session_start();
                          <option value="Batang">Batang</option>
                          <option value="Getah">Getah</option>
                          <option value="Bunga">Bunga</option>
-                         <option value="Kulit Batang">Kulit Batang</option>
+                         <option value="KulitBatang">Kulit Batang</option>
                         <option value="Biji">Biji</option>
                       </select>
                     </div>
@@ -172,6 +172,8 @@ session_start();
                         <option value="Cacar">Cacar</option>
 
                         <option value="Ketombe">Ketombe</option>
+
+                        <option value="Bekas Luka">Bekas Luka</option>
 
                         
                       </select>

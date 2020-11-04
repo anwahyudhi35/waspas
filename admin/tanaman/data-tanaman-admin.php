@@ -126,7 +126,11 @@ session_start();
                           <td> <?php echo $data['nama_tumbuhan']; ?></td>
                           <td> <i><?php echo $data['latin']; ?></i></td>
                           <td><?php echo $data['jenis_tumbuhan']; ?></td>
-                          <td>Bagian Tumbuhan</td>
+                          <td><?php
+                          if ($data['bagian_tumbuhan'] == 'KulitBatang') {
+                           echo "Kulit Batang";
+                          }else
+                           echo $data['bagian_tumbuhan']; ?></td>
                           <td><?php echo $data['cara_pengolahan']; ?></td>
                           <td><?php echo $data['cara_penggunaan']; ?></td>
                           <td> <?php echo $data['khasiat']; ?></td>

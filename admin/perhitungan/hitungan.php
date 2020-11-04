@@ -523,6 +523,11 @@ session_start();
                                         <td><?php echo $sub[22]; ?></td>
                                         <td><?php echo $sub[22]/$total ?></td>
                                     </tr>
+                                    <tr>
+                                        <td>Biji</td>
+                                        <td><?php echo $sub[23]; ?></td>
+                                        <td><?php echo $sub[23]/$total ?></td>
+                                    </tr>
                                 </tbody>
                             </table>
                     <div class="panel-heading">
@@ -545,7 +550,7 @@ session_start();
                             <li><a data-toggle="tab" href="#Kutil">Kutil</a></li>
                             <li><a data-toggle="tab" href="#Ketombe">Ketombe</a></li>
                             <li><a data-toggle="tab" href="#Cacar">Cacar</a></li>
-                            <li><a data-toggle="tab" href="#Krumut">Krumut</a></li>
+                            <li><a data-toggle="tab" href="#Koreng">Bekas Luka</a></li>
 
                         </ul>
                         <br><br>
@@ -665,6 +670,11 @@ session_start();
                                                  }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
                                                      
                                                      $k3[$no] = $sub[22]/$total;
+                                                    echo $k3[$no];
+                                                 }
+                                                 elseif($datas['bagian_tumbuhan'] == "Biji") { //biji udah
+                                                     
+                                                     $k3[$no] = $sub[23]/$total;
                                                     echo $k3[$no];
                                                  }else{
                                                      $k3[$no] = 0;
@@ -810,6 +820,10 @@ session_start();
                                                     echo $rij3[$no];
                                                  }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
                                                     $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }
+                                                 elseif($datas['bagian_tumbuhan'] == "Biji") { //biji udah
+                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }else{
                                                     $rij3[$no] = $k3[$no]/max($k3);
@@ -994,6 +1008,11 @@ session_start();
                                                      
                                                      $k3[$no] = $sub[22]/$total;
                                                     echo $k3[$no];
+                                                 }
+                                                 elseif($datas['bagian_tumbuhan'] == "Biji") { //biji udah
+                                                     
+                                                     $k3[$no] = $sub[23]/$total;
+                                                    echo $k3[$no];
                                                  }else{
                                                      $k3[$no] = 0;
                                                      echo $k3[$no];
@@ -1137,6 +1156,9 @@ session_start();
                                                      $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") { //biji done
                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }else{
@@ -1323,6 +1345,10 @@ session_start();
                                                      
                                                      $k3[$no] = $sub[22]/$total;
                                                     echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") { //bji udah
+                                                     
+                                                     $k3[$no] = $sub[23]/$total;
+                                                    echo $k3[$no];
                                                  }else{
                                                      $k3[$no] = 0;
                                                      echo $k3[$no];
@@ -1466,6 +1492,9 @@ session_start();
                                                      $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") { //biji
                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }else{
@@ -1652,6 +1681,10 @@ session_start();
                                                      
                                                      $k3[$no] = $sub[22]/$total;
                                                     echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") { //biji
+                                                     
+                                                     $k3[$no] = $sub[23]/$total;
+                                                    echo $k3[$no];
                                                  }else{
                                                      $k3[$no] = 0;
                                                      echo $k3[$no];
@@ -1795,6 +1828,9 @@ session_start();
                                                      $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") { //biji
                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }else{
@@ -1981,6 +2017,10 @@ session_start();
                                                      
                                                      $k3[$no] = $sub[22]/$total;
                                                     echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") { //biji
+                                                     
+                                                     $k3[$no] = $sub[23]/$total;
+                                                    echo $k3[$no];
                                                  }else{
                                                      $k3[$no] = 0;
                                                      echo $k3[$no];
@@ -2124,6 +2164,9 @@ session_start();
                                                      $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") { //biji
                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }else{
@@ -2310,7 +2353,12 @@ session_start();
                                                      
                                                      $k3[$no] = $sub[22]/$total;
                                                     echo $k3[$no];
-                                                 }else{
+                                                 }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                     
+                                                     $k3[$no] = $sub[23]/$total;
+                                                    echo $k3[$no];
+                                                 }
+                                                 else{
                                                      $k3[$no] = 0;
                                                      echo $k3[$no];
                                                  }
@@ -2453,6 +2501,9 @@ session_start();
                                                      $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }else{
@@ -2639,6 +2690,10 @@ session_start();
                                                      
                                                      $k3[$no] = $sub[22]/$total;
                                                     echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
+                                                     
+                                                     $k3[$no] = $sub[23]/$total;
+                                                    echo $k3[$no];
                                                  }else{
                                                      $k3[$no] = 0;
                                                      echo $k3[$no];
@@ -2782,6 +2837,9 @@ session_start();
                                                      $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }else{
@@ -2968,6 +3026,10 @@ session_start();
                                                      
                                                      $k3[$no] = $sub[22]/$total;
                                                     echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
+                                                     
+                                                     $k3[$no] = $sub[23]/$total;
+                                                    echo $k3[$no];
                                                  }else{
                                                      $k3[$no] = 0;
                                                      echo $k3[$no];
@@ -3111,6 +3173,9 @@ session_start();
                                                      $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }else{
@@ -3297,6 +3362,10 @@ session_start();
                                                      
                                                      $k3[$no] = $sub[22]/$total;
                                                     echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
+                                                     
+                                                     $k3[$no] = $sub[23]/$total;
+                                                    echo $k3[$no];
                                                  }else{
                                                      $k3[$no] = 0;
                                                      echo $k3[$no];
@@ -3440,6 +3509,9 @@ session_start();
                                                      $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }else{
@@ -3626,6 +3698,10 @@ session_start();
                                                      
                                                      $k3[$no] = $sub[22]/$total;
                                                     echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
+                                                     
+                                                     $k3[$no] = $sub[23]/$total;
+                                                    echo $k3[$no];
                                                  }else{
                                                      $k3[$no] = 0;
                                                      echo $k3[$no];
@@ -3769,6 +3845,9 @@ session_start();
                                                      $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }else{
@@ -3955,6 +4034,10 @@ session_start();
                                                      
                                                      $k3[$no] = $sub[22]/$total;
                                                     echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
+                                                     
+                                                     $k3[$no] = $sub[23]/$total;
+                                                    echo $k3[$no];
                                                  }else{
                                                      $k3[$no] = 0;
                                                      echo $k3[$no];
@@ -4098,6 +4181,9 @@ session_start();
                                                      $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }else{
@@ -4284,6 +4370,10 @@ session_start();
                                                      
                                                      $k3[$no] = $sub[22]/$total;
                                                     echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
+                                                     
+                                                     $k3[$no] = $sub[23]/$total;
+                                                    echo $k3[$no];
                                                  }else{
                                                      $k3[$no] = 0;
                                                      echo $k3[$no];
@@ -4427,6 +4517,9 @@ session_start();
                                                      $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }else{
@@ -4613,6 +4706,10 @@ session_start();
                                                      
                                                      $k3[$no] = $sub[22]/$total;
                                                     echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
+                                                     
+                                                     $k3[$no] = $sub[23]/$total;
+                                                    echo $k3[$no];
                                                  }else{
                                                      $k3[$no] = 0;
                                                      echo $k3[$no];
@@ -4756,6 +4853,9 @@ session_start();
                                                      $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }else{
@@ -4942,6 +5042,10 @@ session_start();
                                                      
                                                      $k3[$no] = $sub[22]/$total;
                                                     echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
+                                                     
+                                                     $k3[$no] = $sub[23]/$total;
+                                                    echo $k3[$no];
                                                  }else{
                                                      $k3[$no] = 0;
                                                      echo $k3[$no];
@@ -5085,6 +5189,9 @@ session_start();
                                                      $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }else{
@@ -5271,6 +5378,10 @@ session_start();
                                                      
                                                      $k3[$no] = $sub[22]/$total;
                                                     echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
+                                                     
+                                                     $k3[$no] = $sub[23]/$total;
+                                                    echo $k3[$no];
                                                  }else{
                                                      $k3[$no] = 0;
                                                      echo $k3[$no];
@@ -5414,6 +5525,9 @@ session_start();
                                                      $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
                                                  }else{
@@ -5599,6 +5713,10 @@ session_start();
                                                      
                                                      $k3[$no] = $sub[22]/$total;
                                                     echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
+                                                     
+                                                     $k3[$no] = $sub[23]/$total;
+                                                    echo $k3[$no];
                                                  }else{
                                                      $k3[$no] = 0;
                                                      echo $k3[$no];
@@ -5744,6 +5862,9 @@ session_start();
                                                  }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
                                                  }else{
                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
@@ -5812,8 +5933,8 @@ session_start();
                                 </table>
                             </div>
                             
-                            <!-- Krumut -->
-                            <div id="Krumut" class="tab-pane">
+                            <!-- Bekas Luka -->
+                            <div id="Koreng" class="tab-pane">
                                 <h3>Matriks Normalisasi</h3>
                                 <table class="table table-hovered table-bordered">
                                     <thead>
@@ -5831,7 +5952,7 @@ session_start();
                                         $k3 = array();
                                         $k4 = array();
                                          
-                                        $sql = "SELECT * FROM tumbuhan_obat where khasiat = 'Krumut'";
+                                        $sql = "SELECT * FROM tumbuhan_obat where khasiat = 'Bekas Luka'";
                                             $result = $dbh -> query($sql);
                                             foreach ($dbh->query($sql) as $datas) :
                                          ?>
@@ -5928,6 +6049,10 @@ session_start();
                                                      
                                                      $k3[$no] = $sub[22]/$total;
                                                     echo $k3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
+                                                     
+                                                     $k3[$no] = $sub[23]/$total;
+                                                    echo $k3[$no];
                                                  }else{
                                                      $k3[$no] = 0;
                                                      echo $k3[$no];
@@ -5982,7 +6107,7 @@ session_start();
                                         $rij3 = array();
                                         $rij4 = array();
                                          
-                                        $sql = "SELECT * FROM tumbuhan_obat where khasiat = 'Krumut'";
+                                        $sql = "SELECT * FROM tumbuhan_obat where khasiat = 'Bekas Luka'";
                                             $result = $dbh -> query($sql);
                                             foreach ($dbh->query($sql) as $datas) :
                                          ?>
@@ -6073,6 +6198,9 @@ session_start();
                                                  }elseif($datas['bagian_tumbuhan'] == "Kulit Batang") {
                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
+                                                 }elseif($datas['bagian_tumbuhan'] == "Biji") {
+                                                    $rij3[$no] = $k3[$no]/max($k3);
+                                                    echo $rij3[$no];
                                                  }else{
                                                     $rij3[$no] = $k3[$no]/max($k3);
                                                     echo $rij3[$no];
@@ -6118,7 +6246,7 @@ session_start();
                                         $no = 0;
                                         $qi = array();
                                          
-                                        $sql = "SELECT * FROM tumbuhan_obat where khasiat = 'Krumut'";
+                                        $sql = "SELECT * FROM tumbuhan_obat where khasiat = 'Bekas Luka'";
                                             $result = $dbh -> query($sql);
                                             foreach ($dbh->query($sql) as $datas) :
                                          ?>

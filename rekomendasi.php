@@ -150,7 +150,11 @@ include "koneksi.php";
                                     foreach ($dbh->query($sql1) as $data1) :
                                 ?>
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" name="bagian[ ]" value=<?php echo $data1['bagian_tumbuhan']; ?> > <?php echo $data1['bagian_tumbuhan']; ?>
+                                    <input type="checkbox" name="bagian[ ]" value=<?php echo $data1['bagian_tumbuhan']; ?> > <?php 
+                                    if ($data1['bagian_tumbuhan'] == 'KulitBatang') {
+                                        echo "Kulit Batang";
+                                    }else
+                                        echo $data1['bagian_tumbuhan']; ?>
                                 </label>
                                 <?php
                                 endforeach;
@@ -179,7 +183,7 @@ include "koneksi.php";
                         
 
                     <div class="form-group">
-                            <input type="submit" required name="hasil" value = "Hasil" class="btn btn-warning btn-fill" onclick="return confirm('Apa anda yakin dengan  data anda?');">
+                            <input type="submit" required name="hasil" value = "Hasil" class="btn btn-success btn-fill" onclick="return confirm('Apa anda yakin dengan  data anda?');">
                 </div>
                     </form>
                 </div>

@@ -123,7 +123,7 @@ $data=mysqli_fetch_array($query);
                          <option value="Batang"<?php if($data['bagian_tumbuhan'] == 'Batang') { ?> selected="selected"<?php } ?>>Batang</option>
                          <option value="Getah"<?php if($data['bagian_tumbuhan'] == 'Getah') { ?> selected="selected"<?php } ?>>Getah</option>
                          <option value="Bunga"<?php if($data['bagian_tumbuhan'] == 'Bunga') { ?> selected="selected"<?php } ?>>Bunga</option>
-                         <option value="Kulit Batang"<?php if($data['bagian_tumbuhan'] == 'Kulit Batang') { ?> selected="selected"<?php } ?>>Kulit Batang</option>
+                         <option value="KulitBatang"<?php if($data['bagian_tumbuhan'] == 'KulitBatang') { ?> selected="selected"<?php } ?>>Kulit Batang</option>
                          <option value="Biji" <?php if($data['bagian_tumbuhan'] == 'Biji') { ?> selected="selected"<?php } ?>>Biji</option>
                       </select>
                     </div>
@@ -179,6 +179,8 @@ $data=mysqli_fetch_array($query);
                         <option value="Cacar"<?php if($data['khasiat'] == 'Cacar') { ?> selected="selected"<?php } ?>>Cacar</option>
 
                         <option value="Ketombe"<?php if($data['khasiat'] == 'Ketombe') { ?> selected="selected"<?php } ?>>Ketombe</option>
+
+                        <option value="Bekas Luka"<?php if($data['khasiat'] == 'Bekas Luka') { ?> selected="selected"<?php } ?>>Bekas Luka</option>
 
                         
                       </select>
