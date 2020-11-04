@@ -109,7 +109,6 @@ foreach ($_POST['guna'] as $gunawan) {
                 <div class="panel panel-heading">
                     <h2>Hasil Rekomendasi Penyakit <?php echo $sakit ?></h2>
                 </div>
-                <button class = "btn btn-success" onclick="sortTable(7)" >Urutkan</button>
                 <div class="panel-body">
 
                     <table class="table table-responsive table-hover table-bordered" id="myTable">
