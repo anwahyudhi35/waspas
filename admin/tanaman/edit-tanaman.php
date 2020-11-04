@@ -60,7 +60,7 @@ $data=mysqli_fetch_array($query);
             <div id="content">
 
                 <nav class="navbar navbar-default">
-                    <div class="container-fluid">
+                    <div class="container">
 
                         <div class="navbar-header">
                             <button type="button" id="sidebarCollapse" class="btn btn-success navbar-btn">
@@ -91,13 +91,8 @@ $data=mysqli_fetch_array($query);
                     <h2>Ubah Data Tanaman</h2>
                 </div>
               </center>
-                <!-- 
-                - disini pake perulangan dari database, tapi databasenya harus diubah agar bisa manggil dari database
-                = dan juga formnya akan nambahkan gambar yang diperlukan jika perlu
-                - gambar diedit diluar biar ukurannya seragam
-                -->
-                  
                 <div class="panel panel-body">
+                  <div class="col-md-6 col-md-offset-3 text-center">
                  <form class="form" action="merawat.php?pohon=<?php echo $data['id_tumbuhan'] ?>" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                        <label>Nama Tumbuhan</label>
@@ -181,9 +176,7 @@ $data=mysqli_fetch_array($query);
                         <option value="Ketombe"<?php if($data['khasiat'] == 'Ketombe') { ?> selected="selected"<?php } ?>>Ketombe</option>
 
                         <option value="Bekas Luka"<?php if($data['khasiat'] == 'Bekas Luka') { ?> selected="selected"<?php } ?>>Bekas Luka</option>
-
-                        
-                      </select>
+                   </select>
                     </div>
                     <div class="form-group">
                       <label>Latin</label>
@@ -194,9 +187,10 @@ $data=mysqli_fetch_array($query);
                       <textarea name="resep" cols="60" rows="10" class="form-control"> <?php echo $data['resep']; ?></textarea>  
                     </div>
                     <div class="form-group">
-                      <label> gambar </label>
+                      <label> Gambar </label>
                       <input type="file" name="gambar" class="form-control" value="<?php echo $data['gambar']?>">
-                    </div>
+                      <font color="red"><b>*file png/jpg dan ukuran maksimal 2mb </b><br></font>
+                    </font></div>
                     <div class="form-group">
               <input type="reset" required name="Reset" class="btn btn-warning pull-right btn-fill"> 
               <input type="submit" required name="nanam" value = "Simpan" class="btn btn-success btn-fill" onclick="return confirm('Apa anda yakin dengan Penambahan data Tumbuhan?');">
@@ -211,7 +205,7 @@ $data=mysqli_fetch_array($query);
 
 
 
-                
+                </div>
         </div>
 
 

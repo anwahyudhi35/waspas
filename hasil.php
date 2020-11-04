@@ -6,6 +6,23 @@ $bagian = $_POST['bagian'];
 $jenis = $_POST['jenis'];
 $olah = $_POST['olah'];
 
+$rekomendasi = array();
+foreach ($_POST['guna'] as $gunawan) {
+                              foreach ($_POST['olah'] as $olahan) {
+                                foreach ($_POST['jenis'] as $jenius) {
+                                    foreach ($_POST["bagian"] as $bagio) {
+                            
+                            $sql = "select tumbuhan_obat.* from tumbuhan_obat where khasiat = '$sakit' AND cara_penggunaan = '$gunawan' AND cara_pengolahan = '$olahan' AND jenis_tumbuhan = '$jenius' AND bagian_tumbuhan = '$bagio' ORDER BY qi DESC";
+                           $hasil = mysqli_query($dbh,$sql) or die(mysqli_error());
+ 
+                              while ($data = $hasil->fetch_assoc()) {
+                              $rekomendasi = $data;
+                              }
+                            }
+                          }
+                        }
+                      }
+
  ?>
 
 <!DOCTYPE html>
@@ -22,7 +39,7 @@ $olah = $_POST['olah'];
         <!-- Our Custom CSS -->
         <link rel="stylesheet" href="asset/index.css">
     </head>
-    <body>
+    <body onload="sortTable(7)">
 
 
 
@@ -84,6 +101,11 @@ $olah = $_POST['olah'];
                 <div class="panel panel-default">
                 
                 <center>
+                  <?php if (empty($rekomendasi)){ ?>
+                    <div class="panel panel-heading">
+                    <h2>Tidak Menemukan Hasil Rekomendasi Penyakit <?php echo $sakit ?></h2>
+                </div>
+                  <?php }else{ ?>
                 <div class="panel panel-heading">
                     <h2>Hasil Rekomendasi Penyakit <?php echo $sakit ?></h2>
                 </div>
@@ -93,7 +115,6 @@ $olah = $_POST['olah'];
                     <table class="table table-responsive table-hover table-bordered" id="myTable">
                        <thead>
                            <tr>
-                               <th>NO</th>
                                <th>Nama Tumbuhan</th>
                                <th>Nama Latin</th>
                                <th>Jenis Tumbuhan</th>
@@ -119,7 +140,6 @@ $olah = $_POST['olah'];
                             foreach ($dbh->query($sql) as $data):
                             ?>
                             <tr>
-                                <td><?php echo $no; ?></td>
                                 <td><a href="wiki_tumbuhan.php?pohon=<?php echo $data['id_tumbuhan'] ?>">
                                 <?php echo $data['nama_tumbuhan'] ?>    
                                 </a></td>
@@ -157,7 +177,7 @@ $olah = $_POST['olah'];
 
                 </div>
 
-            
+            <?php } ?>
                 </div>
         </div>
 
@@ -183,7 +203,7 @@ $olah = $_POST['olah'];
   table = document.getElementById("myTable");
   switching = true;
   // Set the sorting direction to ascending:
-  dir = "asc";
+  dir = "desc";
   /* Make a loop that will continue until
   no switching has been done: */
   while (switching) {
