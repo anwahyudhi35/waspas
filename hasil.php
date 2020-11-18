@@ -6,7 +6,9 @@ $bagian = $_POST['bagian'];
 $jenis = $_POST['jenis'];
 $olah = $_POST['olah'];
 
+$ti = 0;
 $rekomendasi = array();
+$rangking = array();
 foreach ($_POST['guna'] as $gunawan) {
                               foreach ($_POST['olah'] as $olahan) {
                                 foreach ($_POST['jenis'] as $jenius) {
@@ -17,11 +19,25 @@ foreach ($_POST['guna'] as $gunawan) {
  
                               while ($data = $hasil->fetch_assoc()) {
                               $rekomendasi = $data;
+                              $rangking[$ti] = $data["qi"];
+                              $ti++;
                               }
                             }
                           }
                         }
                       }
+
+$atas = max($rangking);
+$bawah = min($rangking);
+$jumlah = count($rangking);
+rsort($rangking);
+
+$juara =[];
+$sinta = 0;
+for ($xy=0; $xy < $jumlah ; $xy++) { 
+  $juara[$rangking[$xy]] = $sinta+$xy;
+}
+
 
  ?>
 
@@ -107,7 +123,7 @@ foreach ($_POST['guna'] as $gunawan) {
                 </div>
                   <?php }else{ ?>
                 <div class="panel panel-heading">
-                    <h2>Hasil Rekomendasi Penyakit <?php echo $sakit ?></h2>
+                    <h2>Hasil Rekomendasi Penyakit <span id="sakit"><?php echo $sakit ?></span></h2>
                 </div>
                 <div class="panel-body">
 
@@ -122,6 +138,7 @@ foreach ($_POST['guna'] as $gunawan) {
                                <th>Cara Penggunaan</th>
                                <th>Khasiat</th>
                                <th>Qi</th>
+                               <th>Urutan Rank</th>
                            </tr>
                        </thead>
                        <tbody>
@@ -140,7 +157,7 @@ foreach ($_POST['guna'] as $gunawan) {
                             ?>
                             <tr>
                                 <td><a href="wiki_tumbuhan.php?pohon=<?php echo $data['id_tumbuhan'] ?>">
-                                <?php echo $data['nama_tumbuhan'] ?>    
+                                <span id="nama"><?php echo $data['nama_tumbuhan'] ?></span>   
                                 </a></td>
                                 <td><i><?php echo $data['latin'] ?></i></td>
                                 <td><?php echo $data['jenis_tumbuhan'] ?></td>
@@ -153,6 +170,11 @@ foreach ($_POST['guna'] as $gunawan) {
                                 <td><?php echo $data['cara_penggunaan'] ?></td>
                                 <td><?php echo $data['khasiat'] ?></td>
                                 <td><?php echo $data['qi'] ?></td>
+                                <td><?php
+                                $orang = $data['qi'];
+                                  echo array_search($orang,  array_keys($juara))+1;
+                                  
+                                ?></td>
                             </tr>
                             <?php
                           
@@ -169,6 +191,7 @@ foreach ($_POST['guna'] as $gunawan) {
                          ?>
                        </tbody>
                    </table>
+                   <!-- <h3><span id="hasil"></span></h3> -->
                    
                 <br><br><br>
                 </center>
@@ -250,6 +273,9 @@ foreach ($_POST['guna'] as $gunawan) {
       }
     }
   }
+  var sakit = document.getElementById("sakit").innerHTML; 
+  var namax=document.getElementById("nama").innerHTML;
+  document.getElementById("hasil").innerHTML= "Untuk penyakit "+sakit+", "+ namax+" merupakan tumbuhan yang paling direkomendasikan";
 }
          </script>
     </body>
